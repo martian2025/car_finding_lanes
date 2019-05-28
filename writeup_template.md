@@ -2,7 +2,6 @@
 
 ## Writeup Template
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -24,10 +23,10 @@ The goals / steps of this project are the following:
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 My pipeline is implemented in function *one_image_pipe* , which has the following steps :
-1. Applied a gaussian_blur on the grayed image; this will make sure that the various short lines in all directions in the image will not generate unnecessary lines when applying the Hough transform
-2. Extracted the edges by using the canny function
-3. Defining a region inside the image where the lines should be considered by Hough transform, based on the look of the images
-4. Applying the Hough transform to extract the Hough lines
+1. Applied a *gaussian_blur* on the grayed image; this will make sure that the various short lines in all directions in the image will not generate unnecessary lines when applying the Hough transform
+2. Extracted the edges by using the *canny* function
+3. Defining a region inside the image where the lines should be considered by *Hough transform*, based on the look of the images
+4. Applying the *Hough transform* to extract the Hough lines
 5. Applying the found lines on top of the image , using draw_lines method . I modified the function to have 2 things done :
     5.1 Find all negative slope lines in the image and average their slope ml and offset bl . These represent the lane left line. Same for the positive slopes, representing the right lane line. In the same time extract the maximum and minimum y found accros all the lines, which will represent the lower and upper y coordinate limit for the extrapolated lines. THis will make sure that the extrapolated 2 lines are going to cover both lane lines equally
     5.2 Calculate the left and right segments ends x coordinates  of the lane by applying the found slopes ( ml and mr ) and offsets ( bl and br ) and then draw the 2 lines over the image
